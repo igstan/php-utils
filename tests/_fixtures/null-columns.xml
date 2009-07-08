@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <table name="foo">
+        <column>xxx</column>
+        <column>yyy</column>
+        <column>zzz</column>
+        <row>
+            <value>xxx_1</value>
+            <value>yyy_1</value>
+            <value>zzz_1</value>
+        </row>
+        <row>
+            <value>xxx_2</value>
+            <value>yyy_2</value>
+            <null/>
+        </row>
+    </table>
+    <table name="bar">
+        <column>aaa</column>
+        <column>bbb</column>
+        <column>ccc</column>
+        <row>
+            <value>aaa_1</value>
+            <value>bbb_1</value>
+            <value>ccc_1</value>
+        </row>
+        <row>
+            <value>aaa_2</value>
+            <null/>
+            <value>ccc_2</value>
+        </row>
+    </table>
+</dataset>
