@@ -4,7 +4,7 @@
  * Removes comment declarations from a string of PHP source code.
  *
  * @author  Ionut G. Stan
- * @license See LICENSE in the root of the project
+ * @license http://www.opensource.org/licenses/bsd-license.php
  * @param   string $source PHP source code
  * @return  string
  */
