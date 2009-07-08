@@ -24,7 +24,7 @@ class SchemaExtractor {
     /**
      * Flag to mark that the $descriptor has been already exported into a DOM
      * structure. Needed so that consecutive calls to getXmlDataset() and
-     * saveXmlDataset() do no interfere.
+     * saveXmlDataset() do not interfere.
      *
      * @var boolean
      */
