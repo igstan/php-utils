@@ -20,7 +20,7 @@ class SchemaExtractor {
      * @var DOMDocument
      */
     private $dom;
-    
+
     /**
      * Flag to mark that the $descriptor has been already exported into a DOM
      * structure. Needed so that consecutive calls to getXmlDataset() and
@@ -151,11 +151,7 @@ class SchemaExtractor {
      */
     protected function buildRows($domTable, $tableName) {
         foreach ($this->desc->getTableValues($tableName) as $row) {
-            $domRow = $this->dom->createElement('row');
-
-            $this->buildRow($domRow, $row);
-
-            $domTable->appendChild($domRow);
+            $this->buildRow($domTable, $row);
         }
     }
 
@@ -164,11 +160,15 @@ class SchemaExtractor {
      * @param  iterable   $row
      * @return void
      */
-    protected function buildRow($domRow, $row) {
+    protected function buildRow($domTable, $row) {
+        $domRow = $this->dom->createElement('row');
+
         foreach ($row as $value) {
             $domValue = $this->getFieldValue($value);
             $domRow->appendChild($domValue);
         }
+
+        $domTable->appendChild($domRow);
     }
 
     /**
