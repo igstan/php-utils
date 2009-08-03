@@ -1,11 +1,6 @@
 <?php
-/**
- * @author  Ionut G. Stan
- * @license http://www.opensource.org/licenses/bsd-license.php
- */
 
-require_once 'PHPUnit/Framework/TestCase.php';
-require_once dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'SchemaExtractor.php';
+require 'SchemaExtractor.php';
 
 class SchemaExtractorTest extends PHPUnit_Framework_TestCase {
     /**
@@ -17,7 +12,7 @@ class SchemaExtractorTest extends PHPUnit_Framework_TestCase {
 
     public function testBasicUsage() {
         $result = SchemaExtractor(new BasicUsageDescriptorStub)->getXmlDataset();
-        $this->assertXmlStringEqualsXmlFile('./_fixtures/basic-usage.xml', $result);
+        $this->assertXmlStringEqualsXmlFile('./fixtures/basic-usage.xml', $result);
     }
 
     /**
@@ -25,7 +20,7 @@ class SchemaExtractorTest extends PHPUnit_Framework_TestCase {
      */
     public function testWorksWithNullColumns() {
         $result = SchemaExtractor(new NullColumnsDescriptorStub)->getXmlDataset();
-        $this->assertXmlStringEqualsXmlFile('./_fixtures/null-columns.xml', $result);
+        $this->assertXmlStringEqualsXmlFile('./fixtures/null-columns.xml', $result);
     }
 
     /**
@@ -50,8 +45,8 @@ class SchemaExtractorTest extends PHPUnit_Framework_TestCase {
         $result    = $extractor->getXmlDataset();
         $extractor->saveXmlDataset($xmlSavePath);
 
-        $this->assertXmlStringEqualsXmlFile('./_fixtures/basic-usage.xml', $result);
-        $this->assertXmlFileEqualsXmlFile('./_fixtures/basic-usage.xml', $xmlSavePath);
+        $this->assertXmlStringEqualsXmlFile('./fixtures/basic-usage.xml', $result);
+        $this->assertXmlFileEqualsXmlFile('./fixtures/basic-usage.xml', $xmlSavePath);
     }
 
     /**
