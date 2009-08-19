@@ -17,7 +17,7 @@ class NumeralBuilder
      * @param  integer $amount
      * @return string
      */
-    public function convert($amount)
+    public function toNumeral($amount)
     {
         return $this->convertRecursive($amount);
     }
