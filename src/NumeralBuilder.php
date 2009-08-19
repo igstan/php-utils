@@ -1,4 +1,8 @@
 <?php
+/**
+ * @author  Ionut G. Stan
+ * @license http://www.opensource.org/licenses/bsd-license.php
+ */
 
 class NumeralBuilder
 {
