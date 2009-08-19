@@ -50,9 +50,9 @@ class NumeralBuilder
     protected function units($amount, $compound)
     {
         if ($compound) {
-            $numberals = $this->makeNumberals('', 'UNU', 'DOI', 'SASE');
+            $numberals = $this->makeNumerals('', 'UNU', 'DOI', 'SASE');
         } else {
-            $numberals = $this->makeNumberals('ZERO', 'UN', 'DOI', 'SASE');
+            $numberals = $this->makeNumerals('ZERO', 'UN', 'DOI', 'SASE');
         }
 
         return $numberals[$amount];
@@ -81,7 +81,7 @@ class NumeralBuilder
      */
     protected function specialTens($amount)
     {
-        $numberals = $this->makeNumberals('', 'UN', 'DOI', 'SAI');
+        $numberals = $this->makeNumerals('', 'UN', 'DOI', 'SAI');
         return $numberals[$amount - 10] . 'SPREZECE';
     }
 
@@ -91,7 +91,7 @@ class NumeralBuilder
      */
     protected function normalTens($amount)
     {
-        $numberals = $this->makeNumberals('', '', 'DOUA', 'SAI');
+        $numberals = $this->makeNumerals('', '', 'DOUA', 'SAI');
 
         if ($amount%10) {
             $rest = ' SI ' . $this->convertRecursive($amount%10, true);
@@ -118,7 +118,7 @@ class NumeralBuilder
             return 'O SUTA' . $rest;
         }
 
-        $numberals = $this->makeNumberals('', '', 'DOUA', 'SASE');
+        $numberals = $this->makeNumerals('', '', 'DOUA', 'SASE');
         return $numberals[$amount/100] . ' SUTE' . $rest;
     }
 
@@ -133,7 +133,7 @@ class NumeralBuilder
                 return 'O MIE';
             }
 
-            $numberals = $this->makeNumberals('', '', 'DOUA', 'SASE');
+            $numberals = $this->makeNumerals('', '', 'DOUA', 'SASE');
 
             if ($amount%1000) {
                 $rest = ' ' . $this->convertRecursive($amount%1000, true);
@@ -172,7 +172,7 @@ class NumeralBuilder
                 return 'UN MILION';
             }
 
-            $numberals = $this->makeNumberals('', '', 'DOUA', 'SASE');
+            $numberals = $this->makeNumerals('', '', 'DOUA', 'SASE');
 
             if ($amount%1000000) {
                 $rest = ' ' . $this->convertRecursive($amount%1000000, true);
@@ -216,7 +216,7 @@ class NumeralBuilder
      * @param  string $six
      * @return array
      */
-    protected function makeNumberals($zero, $one, $two, $six)
+    protected function makeNumerals($zero, $one, $two, $six)
     {
         return array(
             $zero, $one, $two, 'TREI', 'PATRU', 'CINCI', $six, 'SAPTE', 'OPT', 'NOUA',
