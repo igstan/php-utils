@@ -27,14 +27,14 @@ class SchemaExtractorTest extends PHPUnit_Framework_TestCase {
      * Tests that consecutive calls to getXmlDataset() and saveXmlDataset()
      * don't interfere due to inner object state.
      *
-     * This test method is dependent up the vfsStream library in order to mock
+     * This test method is dependent upon the vfsStream library in order to mock
      * the filesystem.
      *
      * @see http://www.phpunit.de/manual/current/en/test-doubles.html#test-doubles.mocking-the-filesystem
      */
     public function testConsecutiveCallsToGetAndSaveXmlDatasetDonNotInterfere() {
         if (! $this->loadVfsStreamClass()) {
-            $this->fail('This test method is dependent up the vfsStream library.');
+            $this->fail('This test method is dependent upon the vfsStream library.');
         }
 
         vfsStreamWrapper::register();
