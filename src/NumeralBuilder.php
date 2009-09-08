@@ -35,11 +35,19 @@ class NumeralBuilder
     {
         $amount = $this->removeLeadingZeros($amount);
 
-        foreach ($this->steps as $threshold => $callback) {
+        foreach ($this->getSteps() as $threshold => $callback) {
             if ($amount < $threshold) {
                 return $this->$callback($amount, $compound);
             }
         }
+    }
+
+    /**
+     * @return array
+     */
+    protected function getSteps()
+    {
+        return $this->steps;
     }
 
     /**
