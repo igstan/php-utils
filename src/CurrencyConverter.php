@@ -121,15 +121,13 @@ class CurrencyConverter
     protected function getRate($code)
     {
         $rateElement = $this->getRateElement($code);
-        $multiplier  = 1;
+        $rate = $rateElement->textContent;
 
-        if ($rateElement->hasAttribute('multiplier')) {
-            $multiplier = $rateElement->getAttribute('multiplier');
-        }
+        $multiplier = $rateElement->hasAttribute('multiplier')
+                    ? $rateElement->getAttribute('multiplier')
+                    : 1;
 
-        $rate = $rateElement->textContent / $multiplier;
-
-        return $rate;
+        return $rate / $multiplier;
     }
 
     /**
