@@ -1,1 +1,7 @@
+# PHPUnit reports
 tests/reports
+
+# Eclipse metadata files
+.settings
+.project
+.buildpath
