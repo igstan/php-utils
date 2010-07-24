@@ -74,11 +74,11 @@ class CurrencyConverter
             return $amount;
         }
 
-        if (! $this->isOriginalCurrency($toCurrency)) {
-            return $this->convertToNonOriginalCurrency($amount, $fromCurrency, $toCurrency);
+        if ($this->isOriginalCurrency($toCurrency)) {
+            return $this->convertToOriginalCurrency($amount, $fromCurrency);
         }
 
-        return $this->convertToOriginalCurrency($amount, $fromCurrency);
+        return $this->convertToNonOriginalCurrency($amount, $fromCurrency, $toCurrency);
     }
 
     /**
