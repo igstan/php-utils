@@ -9,6 +9,12 @@
         <directory>./</directory>
     </testsuite>
 
+	<filter>
+		<whitelist>
+    		<directory suffix=".php">../src</directory>
+		</whitelist>
+	</filter>
+
     <logging>
         <log type="coverage-html" target="./reports" charset="UTF-8"
              yui="true" highlight="false"
